@@ -1,4 +1,4 @@
-package com.svalero.readyfy;
+package com.svalero.readyfy.Activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.svalero.readyfy.Config.RetrofitClientInstance;
 import com.svalero.readyfy.Domain.Book;
+import com.svalero.readyfy.R;
 import com.svalero.readyfy.Service.BookService;
 
 import retrofit2.Call;
@@ -62,13 +63,13 @@ public class BookUpdateActivity extends AppCompatActivity {
                     etPublishedDate.setText(book.getPublishedDate());
                     etISBN.setText(book.getISBN());
                 } else {
-                    Toast.makeText(BookUpdateActivity.this, "Error al cargar datos del libro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookUpdateActivity.this, "Error loading book data", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Book> call, Throwable t) {
-                Toast.makeText(BookUpdateActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookUpdateActivity.this, "Connection error", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -90,16 +91,16 @@ public class BookUpdateActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Book> call, Response<Book> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(BookUpdateActivity.this, "Libro actualizado con éxito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookUpdateActivity.this, "Successfully updated book", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(BookUpdateActivity.this, "Error al actualizar el libro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookUpdateActivity.this, "Error updating book", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Book> call, Throwable t) {
-                Toast.makeText(BookUpdateActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookUpdateActivity.this, "Connection error", Toast.LENGTH_SHORT).show();
             }
         });
     }

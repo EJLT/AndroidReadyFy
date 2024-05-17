@@ -48,13 +48,13 @@ public class BookListActivity extends AppCompatActivity {
                     bookAdapter = new BookAdapter(books);
                     recyclerView.setAdapter(bookAdapter);
                 } else {
-                    Toast.makeText(BookListActivity.this, "Error en la respuesta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookListActivity.this, "Response error", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
-                Toast.makeText(BookListActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookListActivity.this, "Connection error", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -46,16 +46,16 @@ public class BookDeleteActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(BookDeleteActivity.this, "Libro eliminado exitosamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookDeleteActivity.this, "Book successfully deleted", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(BookDeleteActivity.this, "Error al eliminar el libro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookDeleteActivity.this, "Error deleting book", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(BookDeleteActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookDeleteActivity.this, "Connection error", Toast.LENGTH_SHORT).show();
             }
         });
     }

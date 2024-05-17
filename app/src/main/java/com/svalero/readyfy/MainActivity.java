@@ -1,55 +1,59 @@
 package com.svalero.readyfy;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-
+import android.view.View;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.svalero.readyfy.Adapter.BookAdapter;
-import com.svalero.readyfy.Config.RetrofitClientInstance;
-import com.svalero.readyfy.Domain.Book;
-import com.svalero.readyfy.Service.BookService;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
+import com.svalero.readyfy.Activities.BookAddActivity;
+import com.svalero.readyfy.Activities.BookDeleteActivity;
+import com.svalero.readyfy.Activities.BookListActivity;
+import com.svalero.readyfy.Activities.BookUpdateActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private BookAdapter bookAdapter;
+
+    private Button btnAddBook, btnUpdateBook, btnDeleteBook, btnListBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.rvBooks);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        btnAddBook = findViewById(R.id.btnAddBook);
+        btnUpdateBook = findViewById(R.id.btnUpdateBook);
+        btnDeleteBook = findViewById(R.id.btnDeleteBook);
+        btnListBooks = findViewById(R.id.btnListBooks);
 
-        // Obtener los datos
-        BookService service = RetrofitClientInstance.getRetrofitInstance().create(BookService.class);
-        Call<List<Book>> call = service.getBooks();
-
-        call.enqueue(new Callback<List<Book>>() {
+        btnAddBook.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                if(response.isSuccessful() && response.body() != null) {
-                    List<Book> books = response.body();
-                    bookAdapter = new BookAdapter(books);
-                    recyclerView.setAdapter(bookAdapter);
-                } else {
-                    Toast.makeText(MainActivity.this, "Error en la respuesta", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BookAddActivity.class);
+                startActivity(intent);
             }
+        });
 
+        btnUpdateBook.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFailure(Call<List<Book>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BookUpdateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnDeleteBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BookDeleteActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnListBooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BookListActivity.class);
+                startActivity(intent);
             }
         });
     }

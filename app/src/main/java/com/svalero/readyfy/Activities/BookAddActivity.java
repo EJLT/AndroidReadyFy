@@ -60,16 +60,16 @@ public class BookAddActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Book> call, Response<Book> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(BookAddActivity.this, "Libro agregado exitosamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookAddActivity.this, "Book added successfully", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(BookAddActivity.this, "Error al agregar el libro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookAddActivity.this, "Error adding book", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Book> call, Throwable t) {
-                Toast.makeText(BookAddActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookAddActivity.this, "Connection error", Toast.LENGTH_SHORT).show();
             }
         });
     }
