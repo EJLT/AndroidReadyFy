@@ -2,22 +2,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/biblioteca">
 
     <TextView
         android:id="@+id/tvConfirmDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Are you sure you want to delete this book?"
+        android:text="Enter the name of the book to delete:"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:id="@+id/etBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Book Name"
+        android:layout_below="@id/tvConfirmDelete"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnConfirmDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirm"
-        android:layout_below="@id/tvConfirmDelete"
+        android:text="Delete"
+        android:layout_below="@id/etBookName"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
 </RelativeLayout>

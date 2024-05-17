@@ -2,7 +2,6 @@ package com.svalero.readyfy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,36 +24,24 @@ public class MainActivity extends AppCompatActivity {
         btnDeleteBook = findViewById(R.id.btnDeleteBook);
         btnListBooks = findViewById(R.id.btnListBooks);
 
-        btnAddBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BookAddActivity.class);
-                startActivity(intent);
-            }
+        btnAddBook.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BookAddActivity.class);
+            startActivity(intent);
         });
 
-        btnUpdateBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BookUpdateActivity.class);
-                startActivity(intent);
-            }
+        btnUpdateBook.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BookUpdateActivity.class);
+            startActivity(intent);
         });
 
-        btnDeleteBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BookDeleteActivity.class);
-                startActivity(intent);
-            }
+        btnDeleteBook.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BookDeleteActivity.class);
+            startActivity(intent);
         });
 
-        btnListBooks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BookListActivity.class);
-                startActivity(intent);
-            }
+        btnListBooks.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BookListActivity.class);
+            startActivity(intent);
         });
     }
 }

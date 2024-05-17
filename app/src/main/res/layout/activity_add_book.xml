@@ -1,45 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etTitle"
+    <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tittle"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/biblioteca"
+        android:alpha="0.7" />
 
-    <EditText
-        android:id="@+id/etAuthor"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Author"
-        android:layout_below="@id/etTitle"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
 
-    <EditText
-        android:id="@+id/etPublishedDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Publication Date (YYYY-MM-DD)"
-        android:layout_below="@id/etAuthor"
-        android:layout_marginBottom="16dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@android:color/transparent">
 
-    <EditText
-        android:id="@+id/etISBN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ISBN"
-        android:layout_below="@id/etPublishedDate"
-        android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Title"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/white"
+                android:padding="10dp"/>
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:layout_below="@id/etISBN"/>
+            <EditText
+                android:id="@+id/etAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Author"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/white"
+                android:padding="10dp"/>
+
+            <EditText
+                android:id="@+id/etPublishedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Publication Date (YYYY-MM-DD)"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/white"
+                android:padding="10dp"/>
+
+            <EditText
+                android:id="@+id/etISBN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ISBN"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/white"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:backgroundTint="@color/purple_500"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

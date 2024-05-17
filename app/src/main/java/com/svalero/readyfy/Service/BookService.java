@@ -26,5 +26,5 @@ public interface BookService {
     Call<Book> updateBook(@Path("id") int id, @Body Book book);
 
     @DELETE("/books/{id}")
-    Call<Void> deleteBook(@Path("id") int id);
+    Call<Void> deleteBookByName(@Path("id") int id);
 }
