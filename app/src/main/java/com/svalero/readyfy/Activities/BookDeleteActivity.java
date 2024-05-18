@@ -50,7 +50,7 @@ public class BookDeleteActivity extends AppCompatActivity {
         BookService service = RetrofitClientInstance.getRetrofitInstance().create(BookService.class);
 
         // Realiza la solicitud DELETE al servidor
-        Call<Void> call = service.deleteBookByName(bookName);
+        Call<Void> call = service.deleteBookByName(Integer.parseInt(bookName));
 
         // Maneja la respuesta de la solicitud
         call.enqueue(new Callback<Void>() {
@@ -72,3 +72,4 @@ public class BookDeleteActivity extends AppCompatActivity {
             }
         });
     }
+}
